@@ -448,6 +448,118 @@ export const ideas: Record<string, Idea> = {
       'CRM integration'
     ],
     color: 'emerald'
+  },
+
+  // ============================================
+  // DATA'S ADDITIONS
+  // ============================================
+
+  prompts: {
+    slug: 'prompts',
+    title: 'PromptVault',
+    headline: 'Stop Wasting Tokens. Start Getting Results.',
+    subheadline: 'Professional prompt templates for business AI that actually work.',
+    problem: 'You are paying for ChatGPT or Claude but getting mediocre outputs. Generic prompts give generic results. You need prompts engineered for your specific use cases.',
+    solution: 'A library of battle-tested prompt templates for real business tasks. Marketing, analysis, coding, writing—prompts refined through hundreds of iterations.',
+    cta: 'Get the Templates',
+    features: [
+      'Task-specific prompts',
+      'Tested and optimized',
+      'Customization guides',
+      'Regular updates',
+      'Multi-model compatible'
+    ],
+    color: 'violet'
+  },
+
+  research: {
+    slug: 'research',
+    title: 'InsightMine',
+    headline: 'Know Your Customers Without 50 Interviews',
+    subheadline: 'AI-powered customer research at scale from existing data.',
+    problem: 'You should do customer research but interviews take forever. Surveys get low response rates. You end up guessing what customers actually want.',
+    solution: 'AI that analyzes reviews, social mentions, and support tickets to extract customer insights. Real voice-of-customer data without the interview overhead.',
+    cta: 'Get a Free Analysis',
+    features: [
+      'Multi-source analysis',
+      'Theme extraction',
+      'Pain point identification',
+      'Opportunity scoring',
+      'Actionable reports'
+    ],
+    color: 'purple'
+  },
+
+  compete: {
+    slug: 'compete',
+    title: 'CompeteWatch',
+    headline: 'Know What Competitors Are Doing Before They Do It',
+    subheadline: 'AI-powered competitive intelligence on autopilot.',
+    problem: 'Your competitors make moves and you find out too late. Manually tracking them is tedious. You are always reacting, never anticipating.',
+    solution: 'AI monitors your competitors 24/7. Pricing changes, new features, hiring signals, marketing campaigns—you know first and can respond faster.',
+    cta: 'Track Your First Competitor',
+    features: [
+      '24/7 monitoring',
+      'Real-time alerts',
+      'Strategic analysis',
+      'Pricing intelligence',
+      'Hiring signal detection'
+    ],
+    color: 'red'
+  },
+
+  proposals: {
+    slug: 'proposals',
+    title: 'ProposalAI',
+    headline: 'Win More Bids. Write Fewer Proposals.',
+    subheadline: 'AI proposal generation for agencies and consultants.',
+    problem: 'Every proposal takes hours. You customize each one but it is still mostly boilerplate. And you lose half the bids anyway. Time wasted.',
+    solution: 'AI that generates customized proposals in minutes. Feed it the brief, get a polished proposal. You edit and send. Win rate up, time investment down.',
+    cta: 'Try a Sample Proposal',
+    features: [
+      'Brief to proposal',
+      'Win-focused copy',
+      'Auto pricing tables',
+      'Template library',
+      'Analytics on wins'
+    ],
+    color: 'blue'
+  },
+
+  social: {
+    slug: 'social',
+    title: 'SocialFlow',
+    headline: 'A Month of Posts. Created in Minutes.',
+    subheadline: 'AI social media content generation that sounds like you.',
+    problem: 'Posting consistently is hard. You know you should be on social but creating content every day is exhausting. So you post once a week. Maybe.',
+    solution: 'AI that generates a month of social content in one session. Captions, hashtags, posting schedule—all done in your brand voice.',
+    cta: 'Generate Your First Week',
+    features: [
+      'Multi-platform support',
+      'Brand voice learning',
+      'Content calendar',
+      'Hashtag optimization',
+      'Engagement analytics'
+    ],
+    color: 'pink'
+  },
+
+  dataai: {
+    slug: 'dataai',
+    title: 'AskData',
+    headline: 'Ask Questions. Get Answers. From Your Data.',
+    subheadline: 'AI-powered analytics without SQL skills.',
+    problem: 'Your data is locked in spreadsheets and databases. Getting insights requires SQL skills or expensive analysts. What if you could just ask questions in plain English?',
+    solution: 'Connect AI to your data sources and ask questions naturally. No SQL. No waiting for reports. Just instant answers and auto-generated visualizations.',
+    cta: 'Connect Your Data',
+    features: [
+      'Natural language queries',
+      'Auto-generated charts',
+      'Multi-source support',
+      'Data stays private',
+      'Export to Excel/Sheets'
+    ],
+    color: 'cyan'
   }
 }
 
