@@ -3,129 +3,261 @@ import { getAllIdeas } from '@/data/ideas'
 
 export default function Home() {
   const ideas = getAllIdeas()
-
+  const ideaCount = ideas.length
+  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
-      {/* Hero Section */}
-      <div className="container mx-auto px-6 py-16 md:py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Logo/Brand */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              Would You Pay?
-            </span>
-          </h1>
-          
-          {/* Tagline */}
-          <p className="text-xl md:text-2xl text-gray-400 mb-8 leading-relaxed">
-            Stop building things nobody wants.<br />
-            Test demand before you code.
-          </p>
-
-          {/* Value Prop */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16 text-left">
-            <div className="bg-white/5 rounded-xl p-6">
-              <span className="text-3xl mb-4 block">🎯</span>
-              <h3 className="text-lg font-semibold mb-2">Validate First</h3>
-              <p className="text-gray-400 text-sm">
-                Launch a landing page in minutes. Collect signups. See if people actually want it.
-              </p>
-            </div>
-            <div className="bg-white/5 rounded-xl p-6">
-              <span className="text-3xl mb-4 block">📊</span>
-              <h3 className="text-lg font-semibold mb-2">Real Signals</h3>
-              <p className="text-gray-400 text-sm">
-                Email signups beat surveys. If people give you their email, they are interested.
-              </p>
-            </div>
-            <div className="bg-white/5 rounded-xl p-6">
-              <span className="text-3xl mb-4 block">🚀</span>
-              <h3 className="text-lg font-semibold mb-2">Build Winners</h3>
-              <p className="text-gray-400 text-sm">
-                Only invest time in ideas that have proven demand. Kill the losers fast.
-              </p>
-            </div>
+    <div className="min-h-screen bg-[var(--paper-white)] text-[var(--ink-black)]">
+      
+      {/* Navigation */}
+      <nav className="border-b-2 border-[var(--ink-black)]">
+        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/" className="font-pixel text-sm md:text-base tracking-tight">
+            WYP?
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="#ideas" className="text-sm font-medium hover:underline underline-offset-4">
+              Ideas
+            </Link>
+            <button className="btn-ghost text-xs py-2 px-4">
+              Log In
+            </button>
+            <button className="btn-primary text-xs py-2 px-4">
+              Get Started
+            </button>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Active Experiments Section */}
+      {/* Hero Section */}
+      <section className="py-16 md:py-24 lg:py-32">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            
+            {/* Pixel Headline */}
+            <h1 className="font-pixel text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed md:leading-relaxed mb-8">
+              WOULD
+              <br />
+              THEY
+              <br />
+              PAY?
+            </h1>
+            
+            {/* Subheadline */}
+            <p className="text-xl md:text-2xl text-[var(--cool-grey)] mb-4 max-w-2xl mx-auto">
+              Stop building things nobody wants.
+            </p>
+            <p className="text-lg md:text-xl mb-12 max-w-xl mx-auto">
+              Test your idea in 60 seconds. Get real signals before you write a single line of code.
+            </p>
+            
+            {/* CTA */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+              <button className="btn-primary text-sm px-8 py-4">
+                Test Your Idea
+              </button>
+              <button className="btn-ghost text-sm px-8 py-4">
+                See How It Works
+              </button>
+            </div>
+            
+            {/* Social Proof */}
+            <p className="text-sm text-[var(--cool-grey)]">
+              <span className="font-semibold text-[var(--ink-black)]">{ideaCount} ideas</span> being validated by builders like you
+            </p>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Value Props */}
+      <section className="py-16 border-t-2 border-[var(--ink-black)]">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            
+            <div className="card">
+              <div className="font-pixel text-2xl mb-4">01</div>
+              <h3 className="font-pixel text-xs mb-3 uppercase">Validate First</h3>
+              <p className="text-[var(--cool-grey)]">
+                Launch a landing page in minutes. Collect signups. See if people actually want it before you build.
+              </p>
+            </div>
+            
+            <div className="card">
+              <div className="font-pixel text-2xl mb-4">02</div>
+              <h3 className="font-pixel text-xs mb-3 uppercase">Real Signals</h3>
+              <p className="text-[var(--cool-grey)]">
+                Email signups beat surveys. If someone gives you their email, they&apos;re interested. That&apos;s signal.
+              </p>
+            </div>
+            
+            <div className="card">
+              <div className="font-pixel text-2xl mb-4">03</div>
+              <h3 className="font-pixel text-xs mb-3 uppercase">Build Winners</h3>
+              <p className="text-[var(--cool-grey)]">
+                Only invest time in ideas with proven demand. Kill the losers fast. Ship the winners.
+              </p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-16 bg-[var(--ink-black)] text-[var(--paper-white)]">
+        <div className="container mx-auto px-6">
+          <h2 className="font-pixel text-lg md:text-xl text-center mb-12 uppercase">
+            How It Works
+          </h2>
+          
+          <div className="max-w-3xl mx-auto space-y-8">
+            
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-12 h-12 bg-[var(--signal-yellow)] text-[var(--ink-black)] font-pixel text-sm flex items-center justify-center border-2 border-[var(--paper-white)]">
+                1
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Have an idea</h3>
+                <p className="text-[var(--warm-grey)]">
+                  A product, service, or tool you think people might pay for. Doesn&apos;t need to be perfect.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-12 h-12 bg-[var(--signal-yellow)] text-[var(--ink-black)] font-pixel text-sm flex items-center justify-center border-2 border-[var(--paper-white)]">
+                2
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Create a landing page</h3>
+                <p className="text-[var(--warm-grey)]">
+                  Describe the problem and your solution. We generate a page with email capture in seconds.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-12 h-12 bg-[var(--signal-yellow)] text-[var(--ink-black)] font-pixel text-sm flex items-center justify-center border-2 border-[var(--paper-white)]">
+                3
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Share and measure</h3>
+                <p className="text-[var(--warm-grey)]">
+                  Post it. Run £20 in ads. Share on social. See who actually signs up.
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex gap-6 items-start">
+              <div className="flex-shrink-0 w-12 h-12 bg-[var(--success-green)] text-[var(--ink-black)] font-pixel text-sm flex items-center justify-center border-2 border-[var(--paper-white)]">
+                ✓
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Decide with data</h3>
+                <p className="text-[var(--warm-grey)]">
+                  100+ signups? Build it. &lt;10 signups? Kill it. No more guessing.
+                </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Ideas Being Tested */}
       {ideas.length > 0 && (
-        <div className="bg-white/5 py-16">
+        <section id="ideas" className="py-16 border-t-2 border-[var(--ink-black)]">
           <div className="container mx-auto px-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-              Ideas Being Tested
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {ideas.map((idea) => (
+            <div className="text-center mb-12">
+              <h2 className="font-pixel text-lg md:text-xl mb-4 uppercase">
+                Ideas Being Tested
+              </h2>
+              <p className="text-[var(--cool-grey)]">
+                Real ideas from real builders. Click to see their landing pages.
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+              {ideas.slice(0, 9).map((idea) => (
                 <Link
                   key={idea.slug}
                   href={`https://${idea.slug}.wouldyoupay.io`}
-                  className="block bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-colors"
+                  className="card-flat group hover:bg-[var(--signal-yellow)] transition-colors"
                 >
-                  <h3 className="text-lg font-semibold mb-2">{idea.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4">{idea.subheadline}</p>
-                  <span className="text-blue-400 text-sm">View idea →</span>
+                  <h3 className="font-pixel text-xs mb-2 uppercase group-hover:text-[var(--ink-black)]">
+                    {idea.title}
+                  </h3>
+                  <p className="text-sm text-[var(--cool-grey)] group-hover:text-[var(--ink-black)] line-clamp-2">
+                    {idea.subheadline}
+                  </p>
                 </Link>
               ))}
             </div>
+            
+            {ideas.length > 9 && (
+              <div className="text-center mt-8">
+                <button className="btn-ghost text-xs">
+                  View All {ideas.length} Ideas
+                </button>
+              </div>
+            )}
           </div>
-        </div>
+        </section>
       )}
 
-      {/* How It Works */}
-      <div className="py-16">
+      {/* For Builders Section */}
+      <section className="py-16 bg-[var(--signal-yellow)] border-t-2 border-[var(--ink-black)]">
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">
-            How It Works
-          </h2>
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">
-                  1
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Have an idea</h3>
-                  <p className="text-gray-400">A product, service, or tool you think people might pay for.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">
-                  2
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Launch a landing page</h3>
-                  <p className="text-gray-400">Describe the problem and solution. Add an email signup form.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">
-                  3
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Drive traffic</h3>
-                  <p className="text-gray-400">Spend £10-50 on ads. Share on social. See who bites.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center font-bold">
-                  4
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Measure demand</h3>
-                  <p className="text-gray-400">100+ signups? Build it. &lt;10 signups? Kill it and move on.</p>
-                </div>
-              </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-pixel text-lg md:text-xl mb-6 uppercase">
+              Built for Builders
+            </h2>
+            <p className="text-lg mb-8">
+              Whether you&apos;re shipping with AI, building solo, or testing ideas for clients — 
+              validation should be the first step, not an afterthought.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 text-sm">
+              <span className="bg-[var(--ink-black)] text-[var(--paper-white)] px-4 py-2">Indie Hackers</span>
+              <span className="bg-[var(--ink-black)] text-[var(--paper-white)] px-4 py-2">AI Builders</span>
+              <span className="bg-[var(--ink-black)] text-[var(--paper-white)] px-4 py-2">Solo Founders</span>
+              <span className="bg-[var(--ink-black)] text-[var(--paper-white)] px-4 py-2">Agencies</span>
+              <span className="bg-[var(--ink-black)] text-[var(--paper-white)] px-4 py-2">Side Projects</span>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 border-t-2 border-[var(--ink-black)]">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="font-pixel text-xl md:text-2xl mb-6 uppercase">
+            Ready to Test?
+          </h2>
+          <p className="text-lg text-[var(--cool-grey)] mb-8 max-w-xl mx-auto">
+            Your next idea could be your best one. Or it could be a waste of three months. Find out in 60 seconds.
+          </p>
+          <button className="btn-primary text-sm px-12 py-4">
+            Test Your Idea Free
+          </button>
+        </div>
+      </section>
 
       {/* Footer */}
-      <footer className="py-8 text-center text-gray-500 text-sm border-t border-white/10">
-        <p>© {new Date().getFullYear()} Would You Pay. Validate before you build.</p>
+      <footer className="py-8 border-t-2 border-[var(--ink-black)]">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="font-pixel text-xs">WYP?</div>
+            <p className="text-sm text-[var(--cool-grey)]">
+              © {new Date().getFullYear()} Would You Pay. Validate before you build.
+            </p>
+            <div className="flex gap-6 text-sm">
+              <Link href="#" className="hover:underline underline-offset-4">About</Link>
+              <Link href="#" className="hover:underline underline-offset-4">Blog</Link>
+              <Link href="#" className="hover:underline underline-offset-4">Twitter</Link>
+            </div>
+          </div>
+        </div>
       </footer>
+      
     </div>
   )
 }

@@ -1,26 +1,177 @@
 @import "tailwindcss";
 
+/* ============================================
+   WouldYouPay.io Brand Tokens
+   ============================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colours */
+  --ink-black: #0D0D0D;
+  --paper-white: #FAFAFA;
+  --signal-yellow: #FFE600;
+  
+  /* Secondary Colours */
+  --success-green: #00C853;
+  --warm-grey: #E5E5E5;
+  --cool-grey: #6B6B6B;
+  --error-red: #FF3B30;
+  
+  /* Semantic */
+  --background: var(--paper-white);
+  --foreground: var(--ink-black);
+  --accent: var(--signal-yellow);
+  
+  /* Shadows */
+  --shadow-sm: 2px 2px 0 var(--ink-black);
+  --shadow-md: 4px 4px 0 var(--ink-black);
+  --shadow-lg: 6px 6px 0 var(--ink-black);
+  --shadow-xl: 8px 8px 0 var(--ink-black);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink-black);
+  --color-paper: var(--paper-white);
+  --color-signal: var(--signal-yellow);
+  --color-success: var(--success-green);
+  --color-warm: var(--warm-grey);
+  --color-cool: var(--cool-grey);
+  --color-error: var(--error-red);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ============================================
+   Base Styles
+   ============================================ */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* ============================================
+   Pixel Font - VT323 from Google Fonts
+   ============================================ */
+
+.font-pixel {
+  font-family: var(--font-pixel), monospace;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Custom Components
+   ============================================ */
+
+/* Primary Button */
+.btn-primary {
+  background: var(--signal-yellow);
+  color: var(--ink-black);
+  padding: 12px 24px;
+  border: 2px solid var(--ink-black);
+  font-family: var(--font-pixel), monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-md);
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background: var(--ink-black);
+  color: var(--paper-white);
+  padding: 12px 24px;
+  border: 2px solid var(--ink-black);
+  font-family: var(--font-pixel), monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-md);
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-black);
+  padding: 12px 24px;
+  border: 2px solid var(--ink-black);
+  font-family: var(--font-pixel), monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: var(--ink-black);
+  color: var(--paper-white);
+}
+
+/* Cards */
+.card {
+  background: var(--paper-white);
+  border: 2px solid var(--ink-black);
+  padding: 24px;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.15s ease;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-flat {
+  background: var(--paper-white);
+  border: 2px solid var(--ink-black);
+  padding: 24px;
+}
+
+/* Form Inputs */
+.input {
+  background: var(--paper-white);
+  border: 2px solid var(--ink-black);
+  padding: 12px 16px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: box-shadow 0.15s ease;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 4px rgba(255, 230, 0, 0.5);
+}
+
+.input::placeholder {
+  color: var(--cool-grey);
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Selection */
+::selection {
+  background: var(--signal-yellow);
+  color: var(--ink-black);
 }
