@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 import LogoutButton from './LogoutButton'
 
@@ -19,7 +20,15 @@ export default async function DashboardPage() {
             <h1 className="text-3xl font-bold text-gray-900">
               Welcome, {user.user_metadata?.name || user.email}!
             </h1>
-            <LogoutButton />
+            <div className="flex gap-3">
+              <Link 
+                href="/profile"
+                className="px-4 py-2 bg-white text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-colors"
+              >
+                Profile Settings
+              </Link>
+              <LogoutButton />
+            </div>
           </div>
           <p className="text-gray-600 mb-6">
             You&apos;re logged in and ready to validate your ideas.
