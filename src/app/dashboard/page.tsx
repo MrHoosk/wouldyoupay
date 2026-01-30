@@ -34,14 +34,23 @@ export default async function DashboardPage() {
             You&apos;re logged in and ready to validate your ideas.
           </p>
           
+          <div className="mb-6">
+            <Link
+              href="/dashboard/create"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+            >
+              + Create New Idea
+            </Link>
+          </div>
+
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
             <h2 className="text-lg font-semibold text-blue-900 mb-2">
-              🚀 Next Steps
+              🚀 Quick Start
             </h2>
             <ul className="list-disc list-inside text-blue-800 space-y-2">
               <li>Create your first idea landing page</li>
-              <li>Set up your analytics tracking</li>
-              <li>Start collecting email signups</li>
+              <li>Share your unique URL to collect signups</li>
+              <li>Track interest and validate your idea</li>
             </ul>
           </div>
 
