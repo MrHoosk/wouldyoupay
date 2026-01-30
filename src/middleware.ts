@@ -1,57 +1,49 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
+import { createServerClient } from '@supabase/ssr'
 
-export function middleware(request: NextRequest) {
-  const hostname = request.headers.get('host') || ''
-  const url = request.nextUrl.clone()
+export async function middleware(request: NextRequest) {
+  let response = NextResponse.next({
+    request: {
+      headers: request.headers,
+    },
+  })
 
-  // Extract subdomain
-  // Handles: subdomain.wouldyoupay.io, subdomain.localhost:3000
-  const hostParts = hostname.split('.')
-  
-  // Determine if we're on localhost or production
-  const isLocalhost = hostname.includes('localhost')
-  const rootDomain = isLocalhost ? 'localhost:3000' : 'wouldyoupay.io'
-  
-  // Get subdomain (if any)
-  let subdomain: string | null = null
-  
-  if (isLocalhost && hostParts.length > 1) {
-    // e.g., landlord.localhost:3000
-    subdomain = hostParts[0]
-  } else if (!isLocalhost && hostParts.length > 2) {
-    // e.g., landlord.wouldyoupay.io
-    subdomain = hostParts[0]
-  }
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll()
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
+          response = NextResponse.next({
+            request,
+          })
+          cookiesToSet.forEach(({ name, value, options }) =>
+            response.cookies.set(name, value, options)
+          )
+        },
+      },
+    }
+  )
 
-  // Skip middleware for static files and API routes
-  if (
-    url.pathname.startsWith('/_next') ||
-    url.pathname.startsWith('/api') ||
-    url.pathname.includes('.') // static files
-  ) {
-    return NextResponse.next()
-  }
+  // Refresh session if expired - required for Server Components
+  await supabase.auth.getUser()
 
-  // If we have a subdomain, rewrite to the dynamic idea page
-  if (subdomain && subdomain !== 'www') {
-    url.pathname = `/idea/${subdomain}${url.pathname === '/' ? '' : url.pathname}`
-    return NextResponse.rewrite(url)
-  }
-
-  // Root domain - show the main landing page
-  return NextResponse.next()
+  return response
 }
 
 export const config = {
   matcher: [
     /*
-     * Match all request paths except:
+     * Match all request paths except for the ones starting with:
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
-     * - public folder
+     * Feel free to modify this pattern to fit your needs
      */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\..*|api).*)',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }
