@@ -18,12 +18,12 @@ export default function Home() {
             <Link href="#ideas" className="text-sm font-medium hover:underline underline-offset-4">
               Ideas
             </Link>
-            <button className="btn-ghost text-xs py-2 px-4">
+            <Link href="/login" className="btn-ghost text-xs py-2 px-4">
               Log In
-            </button>
-            <button className="btn-primary text-xs py-2 px-4">
+            </Link>
+            <Link href="/register" className="btn-primary text-xs py-2 px-4">
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -52,9 +52,9 @@ export default function Home() {
             
             {/* CTA */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <button className="btn-primary text-sm px-8 py-4">
+              <Link href="/register" className="btn-primary text-sm px-8 py-4">
                 Test Your Idea
-              </button>
+              </Link>
               <button className="btn-ghost text-sm px-8 py-4">
                 See How It Works
               </button>
@@ -235,9 +235,9 @@ export default function Home() {
           <p className="text-lg text-[var(--cool-grey)] mb-8 max-w-xl mx-auto">
             Your next idea could be your best one. Or it could be a waste of three months. Find out in 60 seconds.
           </p>
-          <button className="btn-primary text-sm px-12 py-4">
+          <Link href="/register" className="btn-primary text-sm px-12 py-4">
             Test Your Idea Free
-          </button>
+          </Link>
         </div>
       </section>
 
